@@ -1,33 +1,19 @@
-name: Set Pull Request Template
+name: Copy PR Templates
 
 on:
-  pull_request:
-    types:
-      - opened
+  workflow_run:
+    workflows: ["Copy PR Templates"]  # Name of the workflow in your PR templates repository
 
 jobs:
-  set-pr-template:
+  copy-templates:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set PR Template
+      - name: Run workflow from PR templates repository
         run: |
-          TEMPLATE_TYPE="terraform"
-          git branch -a
-          git checkout main
-          ls -la .github/templates
-          git submodule update --init
-          cp -f ./.github/templates/$TEMPLATE_TYPE/PULL_REQUEST_TEMPLATE.md ./.github/pull_request_template.md
-        shell: bash
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add ./.github/pull_request_template.md
-          git commit -m "Set PR template"
-          git push
-        shell: bash
-
+          cp -r $GITHUB_WORKSPACE/pr-templates/* .github/PULL_REQUEST_TEMPLATE
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
