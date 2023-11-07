@@ -1,6 +1,6 @@
 [submodule "github/templates"]
 	path = github/templates
-	url = https://github.com/raivenhart/my-pr-templates.git
+	url = https://github.com/raivenhart/templates.git
 [submodule ".github/templates"]
 	path = .github/templates
-	url = https://github.com/raivenhart/my-pr-templates.git
+	url = https://github.com/raivenhart/templates.git
