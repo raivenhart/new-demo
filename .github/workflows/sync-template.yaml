@@ -15,6 +15,8 @@ jobs:
       - name: Set PR Template
         run: |
           TEMPLATE_TYPE="terraform"
+          git branch -a
+          git checkout main
           ls -la .github/templates
           git submodule update --init
           cp -f ./.github/templates/$TEMPLATE_TYPE/PULL_REQUEST_TEMPLATE.md ./.github/pull_request_template.md
