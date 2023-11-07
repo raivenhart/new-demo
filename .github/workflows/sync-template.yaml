@@ -1,0 +1,29 @@
+name: Set Pull Request Template
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  set-pr-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set PR Template
+        run: |
+          TEMPLATE_TYPE="terraform"
+          cp -f ./.github/templates/$TEMPLATE_TYPE/pull_request_template.md ./.github/pull_request_template.md
+        shell: bash
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add ./.github/pull_request_template.md
+          git commit -m "Set PR template"
+          git push
+        shell: bash
+
