@@ -2,12 +2,12 @@ name: Sync Template
 
 on:
   workflow_run:
-    workflows: [cp-template]  # Name of the workflow in your PR templates repository
+    workflows: [Tmplts]  # Name of the workflow in your PR templates repository
     types:
       - completed
 
 jobs:
-  copy-templates:
+  on-success:
     runs-on: ubuntu-latest
 
     steps:
