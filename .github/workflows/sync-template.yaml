@@ -3,6 +3,8 @@ name: New Action
 on:
   workflow_run:
     workflows: ["Copy PR Templates"]  # Name of the workflow in your PR templates repository
+    types:
+      - completed
 
 jobs:
   copy-templates:
