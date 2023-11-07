@@ -16,6 +16,7 @@ jobs:
         run: |
           TEMPLATE_TYPE="terraform"
           ls -la .github/templates
+          git submodule update --init
           cp -f ./.github/templates/$TEMPLATE_TYPE/PULL_REQUEST_TEMPLATE.md ./.github/pull_request_template.md
         shell: bash
 
