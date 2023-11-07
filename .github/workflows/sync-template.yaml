@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: [upload]  # Name of the workflow in your PR templates repository
+    branches: [main]
     types:
       - completed
 
