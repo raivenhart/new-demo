@@ -1,8 +1,8 @@
-name: New Action
+name: Sync Template
 
 on:
   workflow_run:
-    workflows: ["Copy PR Templates"]  # Name of the workflow in your PR templates repository
+    workflows: ["cp-template"]  # Name of the workflow in your PR templates repository
     types:
       - completed
 
