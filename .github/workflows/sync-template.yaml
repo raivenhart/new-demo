@@ -1,8 +1,9 @@
 name: Sync Template
 
 on:
+  workflow_dispatch:
   workflow_run:
-    workflows: [Tmplts]  # Name of the workflow in your PR templates repository
+    workflows: [upload]  # Name of the workflow in your PR templates repository
     types:
       - completed
 
