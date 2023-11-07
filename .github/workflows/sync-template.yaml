@@ -15,7 +15,7 @@ jobs:
       - name: Set PR Template
         run: |
           TEMPLATE_TYPE="terraform"
-          cp -f ./.github/templates/$TEMPLATE_TYPE/pull_request_template.md ./.github/pull_request_template.md
+          cp -f ./.github/templates/$TEMPLATE_TYPE/PULL_REQUEST_TEMPLATE.md ./.github/pull_request_template.md
         shell: bash
 
       - name: Commit and push changes
