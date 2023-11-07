@@ -1,4 +1,4 @@
-name: Copy PR Templates
+name: New Action
 
 on:
   workflow_run:
