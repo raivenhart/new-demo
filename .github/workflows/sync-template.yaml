@@ -1,15 +1,12 @@
-name: Sync Template
+name: Workflow B
 
 on:
-  workflow_dispatch:
-  workflow_run:
-    workflows: [upload]  # Name of the workflow in your PR templates repository
-    branches: [main]
+  repository_dispatch:
     types:
-      - completed
+      - workflow-b-event
 
 jobs:
-  on-success:
+  workflow-b:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,3 +18,5 @@ jobs:
           cp -r $GITHUB_WORKSPACE/pr-templates/* .github/PULL_REQUEST_TEMPLATE
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      
